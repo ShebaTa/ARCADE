@@ -258,6 +258,19 @@ a {
   justify-content: space-between;
 }
 
+.section-title__text {
+  line-height: 1.2;
+  font-size: 60px;
+  font-family: inherit;
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.section-title__text_green {
+  background-color: #baff00;
+}
+
 .column {
   display: flex;
   flex-direction: column;
