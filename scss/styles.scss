@@ -2,12 +2,6 @@ $center: center;
 $textcolor: #222;
 $green: #baff00;
 
-@mixin p {
-    font-size: 15px;
-    color: #727272;
-    line-height: 2;
-}
-
 @mixin title {
     line-height: 1.2;
     font: {
@@ -68,6 +62,12 @@ body {
 
 a {
     @include link;
+}
+
+p {
+    font-size: 15px;
+    color: #727272;
+    line-height: 2;
 }
 
 .header-area {
@@ -295,23 +295,21 @@ a {
 }
 
 .container {
-    margin: 0 10%;
-}
+    margin: 0 auto;
+    max-width: 1140px;
 
-.row {
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.section-title {
-    &__text {
+    &__title {
         @include title;
 
         &_green {
             background-color: $green;
         }
     }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
 }
 
 .column {
@@ -329,7 +327,6 @@ a {
 
     &__text {
         margin-bottom: 50px;
-        @include p;
     }
 
     &__link {
@@ -364,8 +361,139 @@ a {
 }
 
 .services {
+    padding: 100px 0;
+}
+
+.row-wrap {
+    @extend .row;
+    flex-wrap: wrap;
+}
+
+.grid-element {
+    width: 30.33333%;
+    padding: 0 15px;
+}
+
+.service-box {
+    margin-bottom: 30px;
+
+    &__icon {
+        width: 100px;
+        height: 125px;
+        position: relative;
+        overflow: hidden;
+        vertical-align: bottom;
+        margin-bottom: 30px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            width: 130%;
+            height: 130%;
+            background: $green;
+            left: -26px;
+            top: 9px;
+            transform: rotate(-65deg);
+        }
+        
+        .service-box:hover & {
+            &::before {
+            opacity: 1;
+            }
+        }
+    }
+
+    &__icon-img {
+        position: absolute;
+        bottom: 0;
+        opacity: .2;
+        max-height: 70px;
+        max-width: 100%;
+
+        .service-box:hover & {
+            opacity: 1;
+            padding: 2px 10px;
+        }
+    }
+
     &__title {
-        @include title;
-        background-color: $green;
+        font-size: 24px;
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+
+    &__link {
+        font-size: 12px;
+        font-weight: 700;
+        color: #222;
+        display: inline-block;
+        padding: 2px 0;
+        
+        .service-box:hover & {
+            background-color:$green;
+            padding: 2px 10px;
+        }
+    }
+}
+
+.motivation {
+    position: relative;
+    
+    &__picture {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+    }
+
+    &__image {
+        position: absolute;
+        left: 0;
+        top: 100px;
+    }
+}
+
+.gray-card {
+    position: absolute;
+    background-color: $textcolor;
+    width: 50%;
+    right: 0;
+    padding: 100px 120px 50px;
+    margin-bottom: 100px;
+}
+
+.container__title_white {
+    @extend .container__title;
+    color: white;
+}
+
+.container__title_gray-green {
+    @extend .container__title_green;
+    color: $textcolor;
+}
+
+.container__text_white {
+    margin-bottom: 30px;
+    color: white;
+}
+
+.container__icons {
+    @include flex(flex-start);
+    vertical-align: bottom;
+
+    .container__icon {
+        display: inline-block;
+        position: relative;
+        height: 80px;
+        width: 50px;
+        margin-right: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .container__icon-img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        max-width: 100%;
     }
 }
