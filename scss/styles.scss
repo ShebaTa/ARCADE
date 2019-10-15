@@ -1,6 +1,7 @@
 $center: center;
 $textcolor: #222;
 $green: #baff00;
+$gray: #747474;;
 
 @mixin title {
     line-height: 1.2;
@@ -295,8 +296,10 @@ p {
 }
 
 .container {
+    position: relative;
     margin: 0 auto;
     max-width: 1140px;
+    padding: 0 15px;
 
     &__title {
         @include title;
@@ -439,11 +442,14 @@ p {
 
 .motivation {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
     
     &__picture {
-        position: absolute;
         width: 50%;
         height: 100%;
+        z-index: 1;
     }
 
     &__image {
@@ -460,6 +466,7 @@ p {
     right: 0;
     padding: 100px 120px 50px;
     margin-bottom: 100px;
+    z-index: 2;
 }
 
 .container__title_white {
@@ -495,5 +502,187 @@ p {
         left: 0;
         bottom: 0;
         max-width: 100%;
+    }
+}
+
+.statistic {
+    padding: 100px 0;
+}
+
+.row-element {
+    position: relative;
+    @include flex(flex-start);
+    width: 25%;
+    padding: 0 15px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 110px;
+        height: 110px;
+        left: -28px;
+        top: 0;
+        background: #efefef;
+        z-index: 1;
+    }
+
+    &__content {
+        padding-top: 15px;
+        padding-left: 43px;
+    }
+
+    &__number {
+        display: inline-block;
+        position: relative;
+        margin: 0;
+        font-size: 68px;
+        font-weight: 700;
+        z-index: 10;
+    }
+    
+    &__text {
+        position: relative;
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 10px;
+        margin-left: 10px;
+        line-height: 1.5;
+        z-index: 10;
+    }
+}
+
+.projects {
+    padding-bottom: 50px;
+}
+
+.projects-navbar {
+    @include list;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &__item {
+        margin-left: 25px;
+        
+        &_active,
+        &:hover {
+        background-color: $green;
+        cursor: pointer;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        font-size: 18px;
+        color: $gray;
+        font-weight: 500;
+        padding: 0 5px;
+        cursor: pointer;
+        transition: .4s;
+    }
+}
+
+.projects-slider {
+    padding: 0 40px;
+    margin-top: 90px;
+
+    &__item {
+        position: relative;
+        width: 25%;
+        margin-right: 20px;
+        height: 550px;
+    }
+
+    &__image {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        position: absolute;
+        padding: 50px;
+        background: rgba(13,13,13,.5);
+        opacity: 0;
+        height: 450px;
+        width: calc(100% - 100px);
+        top: 0;
+        transition: all .4s ease 0s;
+
+        .projects-slider__item:hover & {
+            opacity:1;
+        }
+    }
+
+    &__title {
+        position: relative;
+        color: white;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 1.2;
+        top: 20px;
+        margin: 0 auto 10px;
+        transition: all .6s ease 0s;
+    }
+
+    &__date {
+        position: relative;
+        color: $green;
+        font-weight: 500;
+        font-size: 15px;
+        margin: 0 auto;
+        top: 40px;
+        transition: all .4s ease 0s;
+    }
+
+    &__button {
+        display: inline-block;
+        position: absolute;
+        background: $green;
+        right: 50px;
+        bottom: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        color: $textcolor;
+        padding: 2px 8px;
+        transition: all .4s ease 0s;
+    }
+}
+
+.nav-controls {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+
+    &__item {
+        display: inline-block;
+        margin-right: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        color: $textcolor;
+        letter-spacing: 1px;
+    }
+
+    &__link {
+        @include link;
+
+        &:hover {
+            background-color: $green;
+        }
+    }
+
+    &__icon {
+        margin-right: 5px;
     }
 }

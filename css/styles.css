@@ -256,8 +256,10 @@ p {
 }
 
 .container {
+  position: relative;
   margin: 0 auto;
   max-width: 1140px;
+  padding: 0 15px;
 }
 
 .container__title, .container__title_white {
@@ -406,12 +408,15 @@ p {
 
 .motivation {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .motivation__picture {
-  position: absolute;
   width: 50%;
   height: 100%;
+  z-index: 1;
 }
 
 .motivation__image {
@@ -427,6 +432,7 @@ p {
   right: 0;
   padding: 100px 120px 50px;
   margin-bottom: 100px;
+  z-index: 2;
 }
 
 .container__title_white {
@@ -462,4 +468,191 @@ p {
   left: 0;
   bottom: 0;
   max-width: 100%;
+}
+
+.statistic {
+  padding: 100px 0;
+}
+
+.row-element {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  width: 25%;
+  padding: 0 15px;
+}
+
+.row-element::before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  left: -28px;
+  top: 0;
+  background: #efefef;
+  z-index: 1;
+}
+
+.row-element__content {
+  padding-top: 15px;
+  padding-left: 43px;
+}
+
+.row-element__number {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  font-size: 68px;
+  font-weight: 700;
+  z-index: 10;
+}
+
+.row-element__text {
+  position: relative;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-left: 10px;
+  line-height: 1.5;
+  z-index: 10;
+}
+
+.projects {
+  padding-bottom: 50px;
+}
+
+.projects-navbar {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.projects-navbar__item {
+  margin-left: 25px;
+}
+
+.projects-navbar__item_active, .projects-navbar__item:hover {
+  background-color: #baff00;
+  cursor: pointer;
+}
+
+.projects-navbar__link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  color: #747474;
+  font-weight: 500;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.projects-slider {
+  padding: 0 40px;
+  margin-top: 90px;
+}
+
+.projects-slider__item {
+  position: relative;
+  width: 25%;
+  margin-right: 20px;
+  height: 550px;
+}
+
+.projects-slider__image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.projects-slider__img {
+  width: 100%;
+  height: 100%;
+}
+
+.projects-slider__content {
+  position: absolute;
+  padding: 50px;
+  background: rgba(13, 13, 13, 0.5);
+  opacity: 0;
+  height: 450px;
+  width: calc(100% - 100px);
+  top: 0;
+  transition: all .4s ease 0s;
+}
+
+.projects-slider__item:hover .projects-slider__content {
+  opacity: 1;
+}
+
+.projects-slider__title {
+  position: relative;
+  color: white;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+  top: 20px;
+  margin: 0 auto 10px;
+  transition: all .6s ease 0s;
+}
+
+.projects-slider__date {
+  position: relative;
+  color: #baff00;
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0 auto;
+  top: 40px;
+  transition: all .4s ease 0s;
+}
+
+.projects-slider__button {
+  display: inline-block;
+  position: absolute;
+  background: #baff00;
+  right: 50px;
+  bottom: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+  padding: 2px 8px;
+  transition: all .4s ease 0s;
+}
+
+.nav-controls {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+.nav-controls__item {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.nav-controls__link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+
+.nav-controls__link:hover {
+  background-color: #baff00;
+}
+
+.nav-controls__icon {
+  margin-right: 5px;
 }
