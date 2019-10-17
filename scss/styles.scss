@@ -95,8 +95,6 @@ p {
     }
 
     &__img {
-        // height: 37px;
-        // width: 122px;
         max-width: 100%;
         vertical-align: middle;
     }
@@ -326,6 +324,64 @@ p {
         &_green {
             background-color: $green;
         }
+
+        &_white {
+        @extend .container__title;
+        color: white;
+        }
+
+        &_gray-green {
+            @extend .container__title_green;
+            color: $textcolor;
+        }
+
+        &_white {
+            margin-bottom: 30px;
+            color: white;
+        }
+    }
+    
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 206px;
+        height: 80px;
+        margin: 0 10px 0;
+    }
+
+    &__img {
+        opacity: .2;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &-row__link {
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    &__icons {
+        @include flex(flex-start);
+        vertical-align: bottom;
+
+        &__icon {
+            display: inline-block;
+            position: relative;
+            height: 80px;
+            width: 50px;
+            margin-right: 40px;
+            margin-bottom: 30px;
+        }
+        
+        &__icon-img {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            max-width: 100%;
+        }
     }
 }
 
@@ -486,42 +542,6 @@ p {
     padding: 100px 120px 50px;
     margin-bottom: 100px;
     z-index: 2;
-}
-
-.container__title_white {
-    @extend .container__title;
-    color: white;
-}
-
-.container__title_gray-green {
-    @extend .container__title_green;
-    color: $textcolor;
-}
-
-.container__text_white {
-    margin-bottom: 30px;
-    color: white;
-}
-
-.container__icons {
-    @include flex(flex-start);
-    vertical-align: bottom;
-
-    .container__icon {
-        display: inline-block;
-        position: relative;
-        height: 80px;
-        width: 50px;
-        margin-right: 40px;
-        margin-bottom: 30px;
-    }
-    
-    .container__icon-img {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        max-width: 100%;
-    }
 }
 
 .statistic {
@@ -708,29 +728,6 @@ p {
 
 .clients {
     padding: 100px 0;
-}
-
-.container__box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 206px;
-    height: 80px;
-    margin: 0 10px 0;
-}
-
-.container__img {
-    opacity: .2;
-
-    &:hover {
-        opacity: 1;
-    }
-}
-
-.container-row__link {
-    vertical-align: middle;
-    text-align: center;
-    
 }
 
 .footer-section {
